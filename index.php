@@ -1,5 +1,16 @@
-<html lang="en">
+<?php
+include 'koneksi.php';
 
+$query = "SELECT * from tb_siswa";
+$sql = mysqli_query($conn, $query);
+
+$result = mysqli_fetch_assoc($sql);
+
+var_dump($result);
+
+?>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <!-- Bootstrap -->
@@ -12,7 +23,7 @@
     <!-- Penutup Font Awesome -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width= , initial-scale=1.0">
-    <title>Document</title>
+    <title>SD Alakadarnya</title>
 </head>
 
 <body>
@@ -34,7 +45,7 @@
                 Data diri <cite title="Source Title">siswa dan siswi SD Alakadarnya 1</cite>
             </figcaption>
         </figure>
-        <a href="proses.html" type="button" class="btn btn-primary mb-4">
+        <a href="kelola.php" type="button" class="btn btn-primary mb-4">
             <i class="fa fa-plus"></i>
             Tambah Data
         </a>
@@ -49,27 +60,37 @@
                     <th scope="col">NISN</th>
                     <th scope="col">Jenis Kelamin</th>
                     <th scope="col">Foto</th>
+                    <th scope="col">Alamat</th>
                     <th scope="col">Aksi</th>
                 </tr>
                 </thead>
                 <tbody class="table-group-divider">
+                    <?php
+                    while($result = mysqli_fetch_assoc($sql)){
+                    ?>
                     <tr>
-                        <th scope="row">
-                            <center>1</center>
-                        </th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><img src="img/img1.jpg" alt="" style="width: 100px"></td>
+                        <td scope="row">
+                            <center><?php echo $result['id_siswa']; ?> </center>
+                        </td>
+                        <td><?php echo $result['nama_siswa']; ?> </td>
+                        <td><?php echo $result['nisn_siswa']; ?> </td>
+                        <td><?php echo $result['jeniskelamin_siswa']; ?> </td>
                         <td>
-                            <a href="proses.html" type="button" class="btn btn-warning btn-sm">
+                            <img src="img/<?php echo $result['foto_siswa']; ?>" alt="" style="width: 100px">
+                        </td>
+                        <td><?php echo $result['alamat_siswa']; ?> </td>
+                        <td>
+                            <a href="kelola.php?ubah=1" type="button" class="btn btn-warning btn-sm">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a href="proses.html" type="button" class="btn btn-danger btn-sm">
+                            <a href="proses.php?del=1" type="button" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>
                     </tr>
+                    <?php
+                    }
+                    ?>
                 </tbody>
             </table>
     </div>
