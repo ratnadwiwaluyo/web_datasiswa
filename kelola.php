@@ -28,37 +28,37 @@
             <div class="mb-3 row">
             <label for="nisn" class="col-sm-2 col-form-label">NISN</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="nisn" placeholder="">
+                <input type="text" name="nisn_siswa" class="form-control" id="nisn" placeholder="">
             </div>
         </div>
         <div class="mb-3 row">
             <label for="nama" class="col-sm-2 col-form-label">Nama</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="nama" placeholder="">
+                <input type="text" name="nama_siswa" class="form-control" id="nama" placeholder="">
             </div>
         </div>
         <div class="mb-3 row">
             <label for="jenkel" class="col-sm-2 col-form-label">Jenis Kelamin</label>
             <div class="col-sm-10">
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" name="jeniskelamin_siswa" aria-label="Default select example">
                     <option selected>Pilih jenis kelamin</option>
-                    <option value="1">Laki-laki</option>
-                    <option value="2">Perempuan</option>
+                    <option value="laki-laki">Laki-laki</option>
+                    <option value="perempuan">Perempuan</option>
                 </select>
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="jenkel" class="col-sm-2 col-form-label">Foto</label>
+            <label for="foto_siswa" class="col-sm-2 col-form-label">Foto</label>
             <div class="col-sm-10">
                 <div class="mb-3">
-                    <input class="form-control" type="file" id="foto">
+                    <input class="form-control" type="file" name="foto_siswa" id="foto">
                 </div>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" name="alamat_siswa" id="alamat_siswa" rows="3"></textarea>
             </div>
         </div>
         <div class="mb-3 row mt-4">

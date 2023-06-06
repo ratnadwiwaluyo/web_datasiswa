@@ -1,12 +1,12 @@
 <?php
 include 'koneksi.php';
 
-$query = "SELECT * from tb_siswa";
+$query = "SELECT *from tb_siswa";
 $sql = mysqli_query($conn, $query);
-
 $result = mysqli_fetch_assoc($sql);
 
-var_dump($result);
+$no = 1;
+// var_dump($result);
 
 ?>
 
@@ -51,7 +51,7 @@ var_dump($result);
         </a>
         <!-- Tabel Responsive -->
         <table class="table-responsive">
-            <table class="table align-middle table-bordered table-hover" <thead>
+            <table class="table align-middle table-bordered table-hover">
                 <tr>
                     <th scope="col">
                         <center>No</center>
@@ -70,7 +70,7 @@ var_dump($result);
                     ?>
                     <tr>
                         <td scope="row">
-                            <center><?php echo $result['id_siswa']; ?> </center>
+                            <center><?php echo $no++; ?> </center>
                         </td>
                         <td><?php echo $result['nama_siswa']; ?> </td>
                         <td><?php echo $result['nisn_siswa']; ?> </td>
@@ -80,10 +80,10 @@ var_dump($result);
                         </td>
                         <td><?php echo $result['alamat_siswa']; ?> </td>
                         <td>
-                            <a href="kelola.php?ubah=1" type="button" class="btn btn-warning btn-sm">
+                            <a href="kelola.php?ubah=<?php echo $result['id_siswa']; ?>" type="button" class="btn btn-warning btn-sm">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a href="proses.php?del=1" type="button" class="btn btn-danger btn-sm">
+                            <a href="proses.php?del=<?php echo $result['id_siswa']; ?>" type="button" class="btn btn-danger btn-sm" onclick="return confirm('Ingin menghapus data?')">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>
